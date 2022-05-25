@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Página de Cliente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let cliente of clientes">
+      <ion-item-options>
+      <ion-item-option color="danger" (click)="remover(cliente.id)x">Excluir</ion-item-option>
+      </ion-item-options>
+      <ion-item>{{cliente.nomeCompleto}}</ion-item>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
