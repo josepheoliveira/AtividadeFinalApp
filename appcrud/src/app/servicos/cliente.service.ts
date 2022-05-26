@@ -3,12 +3,11 @@ import { Injectable } from '@angular/core';
 
 export interface Cliente{
   id: number;
-  nome : String;
-  cpf: String; 
-  rg: String;
-  endereco: String;
-  telefone: String;
- 
+  nome : string;
+  cpf: string; 
+  rg: string;
+  endereco: string;
+  telefone: string;
 }
 
 
@@ -20,15 +19,19 @@ export class ClienteService {
   private url = 'http://localhost/apiAppCrud/apiCliente';
   constructor(private http:HttpClient) { }
 
-  create(cliente : Cliente){
-    return this.http.post(this.url, cliente);
-  }
-
   getAll(){
     return this.http.get<[Cliente]>(this.url);
   }
 
   remove(id: any){
     return this.http.delete(this.url+'?id=' + id);
+  }
+
+  create(cliente : Cliente){
+    return this.http.post(this.url, cliente);
+  }
+
+  update(cliente: Cliente, id:any){
+    return this.http.put(this.url+'?id='+ id, cliente);
   }
 }

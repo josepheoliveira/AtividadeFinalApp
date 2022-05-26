@@ -1,9 +1,32 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>modalCliente</ion-title>
+  <ion-toolbar color="primary">
+    <ion-button slot="end" (click)="fecharModal()">Fechar</ion-button>
+    <ion-title>{{atualizar ? 'Editar Usuario' : 'Cadastrar Usuario'}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+<form #f="ngForm" (ngSubmit)="enviarFormulario(f)">
+  <ion-item>
+    <ion-label position="floating">Nome</ion-label>
+    <ion-input [(ngModel)]="dadosCliente.nome" name="nome"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">CPF</ion-label>
+    <ion-input [(ngModel)]="dadosCliente.cpf" name="cpf"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">RG</ion-label>
+    <ion-input [(ngModel)]="dadosCliente.rg" name="rg"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Endereço</ion-label>
+    <ion-input [(ngModel)]="dadosCliente.endereco" name="endereco"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Telefone</ion-label>
+    <ion-input [(ngModel)]="dadosCliente.telefone" name="telefone"></ion-input>
+  </ion-item>
+  <ion-button fill="outline" expand="block"b type="submit">{{atualizar ? 'Editar' : 'Cadastrar'}}</ion-button>
+</form>
 </ion-content>
