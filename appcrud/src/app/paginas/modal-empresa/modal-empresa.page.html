@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-button slot="end" (click)="fecharModal()">Fechar</ion-button>
+    <ion-title>{{atualizar ? 'Editar Empresa' : 'Cadastrar Empresa'}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #f="ngForm" (ngSubmit)="enviarFormulario(f)">
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input [(ngModel)]="dadosEmpresa.nome" name="nome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Data de Abertura</ion-label>
+      <ion-input [(ngModel)]="dadosEmpresa.datadeabertura" name="datadeabertura"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">CNPJ</ion-label>
+      <ion-input [(ngModel)]="dadosEmpresa.cnpj" name="cnpj"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Situação Cadastral</ion-label>
+      <ion-input [(ngModel)]="dadosEmpresa.situacaocadastral" name="situacaocadastral"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Endereço</ion-label>
+      <ion-input [(ngModel)]="dadosEmpresa.endereco" name="endereco"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Tipo de Serviço</ion-label>
+      <ion-input [(ngModel)]="dadosEmpresa.tipodeservico" name="tipodeservico"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Telefone</ion-label>
+      <ion-input [(ngModel)]="dadosEmpresa.telefone" name="telefone"></ion-input>
+    </ion-item>
+    <ion-button fill="outline" expand="block"b type="submit">{{atualizar ? 'Editar' : 'Cadastrar'}}</ion-button>
+  </form>
+</ion-content>

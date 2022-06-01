@@ -21,6 +21,14 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./paginas/home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'empresa',
+    loadChildren: () => import('./paginas/empresa/empresa.module').then( m => m.EmpresaPageModule)
+  },
+  {
+    path: 'modal-empresa',
+    loadChildren: () => import('./paginas/modal-empresa/modal-empresa.module').then( m => m.ModalEmpresaPageModule)
   }
 
 ];

@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-button slot="end" (click)="novaEmpresa()">Nova Empresa</ion-button>
+    <ion-title>Página de Empresa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let empresa of empresas">
+      <ion-item-options>
+        <ion-item-option color="danger" (click)="remover(empresa.id)">Excluir</ion-item-option>
+        <ion-item-option color="sucess" (click)="atualizar(empresa)">Editar</ion-item-option>
+      </ion-item-options>
+      <ion-item>{{empresa.nome}}</ion-item>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
