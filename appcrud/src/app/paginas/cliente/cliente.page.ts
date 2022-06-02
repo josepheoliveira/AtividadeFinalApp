@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { Cliente, ClienteService } from 'src/app/servicos/cliente.service';
 import { ModalClientePage } from '../modal-cliente/modal-cliente.page';
 
@@ -11,7 +11,11 @@ import { ModalClientePage } from '../modal-cliente/modal-cliente.page';
 export class ClientePage implements OnInit {
   clientes: Cliente[];
   
-  constructor(private service: ClienteService, private modalCtrl: ModalController) { }
+  constructor(private service: ClienteService, private modalCtrl: ModalController, private navController: NavController) { }
+
+  showPageHome(){
+    this.navController.navigateForward('home');
+  }
 
   ngOnInit() {
     this.service.getAll().subscribe(resposta =>{

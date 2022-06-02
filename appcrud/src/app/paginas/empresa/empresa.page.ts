@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { Empresa, EmpresaService } from 'src/app/servicos/empresa.service';
 import { ModalEmpresaPage } from '../modal-empresa/modal-empresa.page';
 
@@ -11,7 +11,11 @@ import { ModalEmpresaPage } from '../modal-empresa/modal-empresa.page';
 export class EmpresaPage implements OnInit {
 
   empresa : Empresa[];
-  constructor(private service : EmpresaService, private modalCtrl : ModalController) { }
+  constructor(private service : EmpresaService, private modalCtrl : ModalController, private navController: NavController) { }
+
+  showPageHome(){
+    this.navController.navigateForward('home');
+  }
 
   ngOnInit() {
     this.service.getAll().subscribe(resposta =>{
