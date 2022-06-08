@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-button slot="start" (click)="showPageHome()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-button slot="end" (click)="novoServico()">Novo Serviço</ion-button>
+    <ion-title>Cadastro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let cadastroservico of cadastroservicos">
+      <ion-item-options>
+        <ion-item-option color="danger" (click)="remover(cadastroservico.id)">Excluir</ion-item-option>
+        <ion-item-option color="sucess" (click)="atualizar(cadastroservico)">Editar</ion-item-option>
+      </ion-item-options>
+      <ion-item>{{cadastroservico.nome}}</ion-item>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

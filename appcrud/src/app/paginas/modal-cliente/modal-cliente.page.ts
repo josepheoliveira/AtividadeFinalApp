@@ -34,7 +34,7 @@ export class ModalClientePage implements OnInit {
   }
 
   enviarFormulario(form: NgForm){
-    const cliente = form.value
+    const cliente = form.value;
     if(this.atualizar){
       this.service.update(cliente, this.c.id).subscribe(resposta => {
         this.modalCrtl.dismiss(resposta);

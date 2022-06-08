@@ -30,7 +30,15 @@ const routes: Routes = [
   {
     path: 'modal-empresa',
     loadChildren: () => import('./paginas/modal-empresa/modal-empresa.module').then( m => m.ModalEmpresaPageModule)
+  },  {
+    path: 'cadastroservico',
+    loadChildren: () => import('./paginas/cadastroservico/cadastroservico.module').then( m => m.CadastroservicoPageModule)
+  },
+  {
+    path: 'modal-cadastroservico',
+    loadChildren: () => import('./paginas/modal-cadastroservico/modal-cadastroservico.module').then( m => m.ModalCadastroservicoPageModule)
   }
+
 
 ];
 
