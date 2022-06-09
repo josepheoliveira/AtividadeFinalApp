@@ -10,7 +10,7 @@ import { ModalEmpresaPage } from '../modal-empresa/modal-empresa.page';
 })
 export class EmpresaPage implements OnInit {
 
-  empresa : Empresa[];
+  empresas : Empresa[];
   constructor(private service : EmpresaService, private modalCtrl : ModalController, private navController: NavController) { }
 
   showPageHome(){
@@ -19,14 +19,14 @@ export class EmpresaPage implements OnInit {
 
   ngOnInit() {
     this.service.getAll().subscribe(resposta =>{
-      this.empresa = resposta;
+      this.empresas = resposta;
     });
   }
 
   remover(id:any){
     this.service.remove(id).subscribe( () =>{
       this.service.getAll().subscribe(resposta => {
-        this.empresa = resposta;
+        this.empresas = resposta;
       });
     });
   }
@@ -39,21 +39,21 @@ export class EmpresaPage implements OnInit {
       return modal.onDidDismiss();
     }).then(({data}) => {
       this.service.getAll().subscribe(resposta => {
-        this.empresa= resposta;
+        this.empresas= resposta;
       });
     });
   }
   
-  atualizar(c: Empresa){
+  atualizar(e: Empresa){
     this.modalCtrl.create({
       component: ModalEmpresaPage,
-      componentProps: {c}
+      componentProps: {e}
     }).then(modal =>{
       modal.present();
       return modal.onDidDismiss();
     }).then(({data}) =>{
       this.service.getAll().subscribe(resposta =>{
-        this.empresa = resposta;
+        this.empresas = resposta;
       });
     });
   }

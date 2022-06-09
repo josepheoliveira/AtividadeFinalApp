@@ -4,12 +4,13 @@ import { Cadastroservico, ServicoService } from 'src/app/servicos/servico.servic
 import { ModalCadastroservicoPage } from '../modal-cadastroservico/modal-cadastroservico.page';
 
 @Component({
-  selector: 'app-cadastroservico',
-  templateUrl: './cadastroservico.page.html',
-  styleUrls: ['./cadastroservico.page.scss'],
+    selector: 'app-cadastroservico',
+    templateUrl: './cadastroservico.page.html',
+    styleUrls: ['./cadastroservico.page.scss'],
 })
+
 export class CadastroservicoPage implements OnInit {
-  cadastroservico: Cadastroservico[];
+  cadastroservicos: Cadastroservico[];
 
   constructor(private service: ServicoService, private modalCtrl: ModalController,  private navController: NavController) { }
 
@@ -19,14 +20,14 @@ export class CadastroservicoPage implements OnInit {
 
   ngOnInit() {
     this.service.getAll().subscribe(resposta =>{
-      this.cadastroservico = resposta;
+      this.cadastroservicos = resposta;
     });
   }
 
   remover(id:any){
     this.service.remove(id).subscribe( () =>{
       this.service.getAll().subscribe(resposta => {
-        this.cadastroservico = resposta;
+        this.cadastroservicos = resposta;
       });
     });
   }
@@ -39,21 +40,21 @@ export class CadastroservicoPage implements OnInit {
       return modal.onDidDismiss();
     }).then(({data}) => {
       this.service.getAll().subscribe(resposta => {
-        this.cadastroservico= resposta;
+        this.cadastroservicos = resposta;
       });
     });
   }
 
-  atualizar(c: Cadastroservico){
+  atualizar(s: Cadastroservico){
     this.modalCtrl.create({
       component: ModalCadastroservicoPage,
-      componentProps: {c}
+      componentProps: {s}
     }).then(modal =>{
       modal.present();
       return modal.onDidDismiss();
     }).then(({data}) =>{
       this.service.getAll().subscribe(resposta =>{
-        this.cadastroservico = resposta;
+        this.cadastroservicos = resposta;
       });
     });
   }

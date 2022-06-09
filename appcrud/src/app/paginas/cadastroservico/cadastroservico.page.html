@@ -10,7 +10,7 @@
 
 <ion-content>
   <ion-list>
-    <ion-item-sliding *ngFor="let cadastroservicos of cadastroservico">
+    <ion-item-sliding *ngFor="let cadastroservico of cadastroservicos">
       <ion-item-options>
         <ion-item-option color="danger" (click)="remover(cadastroservico.id)">Excluir</ion-item-option>
         <ion-item-option color="sucess" (click)="atualizar(cadastroservico)">Editar</ion-item-option>

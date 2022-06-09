@@ -32,7 +32,7 @@ export class EmpresaService {
     return this.http.post(this.url, empresa);
   }
 
-  update(cliente: Empresa, id:any){
-    return this.http.put(this.url+'?id='+ id, cliente);
+  update(empresa: Empresa, id:any){
+    return this.http.put(this.url+'?id='+ id, empresa);
   }
 }
