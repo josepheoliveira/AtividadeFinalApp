@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 export interface Cliente{
   id: number;
   nome : string;
-  cpf: string; 
+  cpf: string;
   rg: string;
   endereco: string;
   telefone: string;
@@ -16,7 +16,7 @@ export interface Cliente{
 })
 export class ClienteService {
 
-  private url = 'http://localhost/apiAppCrud/apiCliente';
+  private url = 'http://localhost/apiAppCrud/apiCliente.php';
   constructor(private http:HttpClient) { }
 
   getAll(){

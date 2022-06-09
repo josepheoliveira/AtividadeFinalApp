@@ -1,12 +1,12 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 export interface Empresa{
   id: number;
   nome : string;
   datadeabertura: string;
   cnpj: string;
-  situacaocadastral: string;  
+  situacaocadastral: string;
   endereco: string;
   tipodeservico: string;
   telefone: string;
@@ -17,7 +17,7 @@ export interface Empresa{
 })
 export class EmpresaService {
 
-  private url = 'http://localhost/apiAppCrud/apiEmpresa';
+  private url = 'http://localhost/apiAppCrud/apiEmpresa.php';
   constructor(private http:  HttpClient) { }
 
   getAll(){

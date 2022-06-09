@@ -13,7 +13,7 @@ export interface Cadastroservico{
 })
 export class ServicoService {
 
-  private url = 'http://localhost/apiAppCrud/apiCadastroservico';
+  private url = 'http://localhost/apiAppCrud/apiCadastroservico.php';
 
   constructor(private http: HttpClient) { }
 
